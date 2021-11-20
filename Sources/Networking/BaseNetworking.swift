@@ -8,9 +8,9 @@ import Foundation
 
 open class BaseNetworking {
 
-    private let client: HttpClientApi
+    private let client: HttpClientAPI
     
-    public init(client: HttpClientApi) {
+    public init(client: HttpClientAPI) {
         self.client = client
     }
     

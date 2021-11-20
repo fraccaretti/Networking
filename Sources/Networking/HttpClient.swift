@@ -13,12 +13,12 @@ public struct EmptyResponse: Codable { }
 public typealias NetworkingResultPublisher<U: Codable> = AnyPublisher<U, Error>
 public typealias NetworkingEmptyResultPublisher = NetworkingResultPublisher<EmptyResponse>
 
-public protocol HttpClientApi: AnyObject {
+public protocol HttpClientAPI: AnyObject {
     
     func perform<T: Codable, U: Codable>(_ request: HttpRequest<T>) -> NetworkingResultPublisher<U>
 }
 
-public final class HttpClient: NSObject, HttpClientApi {
+public final class HttpClient: NSObject, HttpClientAPI {
     
     private let session: URLSession
     
@@ -81,7 +81,7 @@ private extension URLSession.DataTaskPublisher {
             }
 
             NSLog("""
-                [🌐] [↑] [🟢] Request: \(request.string)
+                [🌐] [↓] [🟢] Request: \(request.string)
                 Response: \(String(data: data, encoding: .utf8) ?? "")
                 """)
             
